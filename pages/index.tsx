@@ -54,9 +54,10 @@ export default function Home() {
         select={(info) => {
 
           setEvents(event => {
+            const newId = events[events.length - 1].extendedProps.id + 1
             return [
               ...event,
-              { title: 'sala 4', start: info.startStr, end: info.endStr, backgroundColor: "gray", extendedProps: { id: 4 } }]
+              { title: `sala ${newId}`, start: info.startStr, end: info.endStr, backgroundColor: "gray", extendedProps: { id: newId } }]
           })
           alert('selected ' + info.startStr + ' to ' + info.endStr);
         }}
