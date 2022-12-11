@@ -79,7 +79,7 @@ export default function Home() {
         events={events}
         locale={"pt-br"}
         timeZone={"UTF"}
-        titleFormat={{ year: 'numeric', month: 'numeric', day: 'numeric' }}
+        titleFormat={{ year: 'numeric', month: 'long' }}
         // allDayText={"24h"}
         allDaySlot={false}
         buttonText={{
