@@ -75,8 +75,8 @@ export default function Home() {
         locale={"pt-br"}
         timeZone={"UTF"}
         titleFormat={{ year: 'numeric', month: 'numeric', day: 'numeric' }}
-        allDayText={"24h"}
-        // allDaySlot={false}
+        // allDayText={"24h"}
+        allDaySlot={false}
         buttonText={{
           today: 'Hoje',
           month: 'Mês',
