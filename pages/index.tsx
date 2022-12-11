@@ -28,8 +28,19 @@ export default function Home() {
       <FullCalendar
         nowIndicator={true}
         eventClick={(info) => console.log(info.event.extendedProps, info.event.title)}
-        selectable={true}
         editable={true}
+        views={{
+          dayGrid: {
+            selectable: true
+          },
+          timeGrid: {
+            selectable: true
+          },
+          dayGridMonth: {
+            selectable: false
+          }
+
+        }}
         ref={calendarRef}
         plugins={[dayGridPlugin, interactionPlugin, timeGridPlugin]}
         initialView="timeGridWeek"
@@ -52,7 +63,6 @@ export default function Home() {
         }}
 
         select={(info) => {
-
           setEvents(event => {
             const newId = events[events.length - 1].extendedProps.id + 1
             return [
@@ -64,9 +74,9 @@ export default function Home() {
         events={events}
         locale={"pt-br"}
         timeZone={"UTF"}
-        titleFormat={{ year: 'numeric', month: 'numeric', day: 'numeric' }   }
-        // allDayText={"24 horas"}
-        allDaySlot={false}
+        titleFormat={{ year: 'numeric', month: 'numeric', day: 'numeric' }}
+        allDayText={"24h"}
+        // allDaySlot={false}
         buttonText={{
           today: 'Hoje',
           month: 'Mês',
