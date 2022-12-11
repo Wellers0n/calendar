@@ -5,21 +5,26 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import { useRef, useState } from 'react';
 import { useRouter } from 'next/router'
 
-const data = [
-  {
-    title: 'sala 1', start: '2022-12-06T07:57:45.121Z', end: '2022-12-06T09:57:45.121Z', backgroundColor: "green", extendedProps: { id: 1 }
-  },
-  {
-    title: 'sala 2', date: '2022-12-06T07:57:45.121Z', backgroundColor: "purple", extendedProps: { id: 2 }
-  },
-  {
-    title: 'sala 3', date: '2022-12-07T07:57:45.121Z', backgroundColor: "#000", extendedProps: { id: 3 }
-  }
-]
-
 export default function Home() {
   const router = useRouter()
+
+  const start = new Date();
+  const end = new Date(new Date().setMinutes(start.getMinutes() + 30));
+
+  const data = [
+    {
+      title: 'sala 1', start, end, backgroundColor: "green", extendedProps: { id: 1 }
+    },
+    {
+      title: 'sala 2', start: new Date(new Date().setHours(start.getHours() + 1)), end: new Date(new Date().setHours(start.getHours() + 2)), backgroundColor: "purple", extendedProps: { id: 2 }
+    },
+    {
+      title: 'sala 3', start: new Date(new Date().setHours(start.getHours() + 2)), end: new Date(new Date().setHours(start.getHours() + 3)), backgroundColor: "#000", extendedProps: { id: 3 }
+    }
+  ]
+
   const [events, setEvents] = useState(data)
+
 
   const calendarRef = useRef(null);
 
