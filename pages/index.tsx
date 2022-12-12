@@ -50,7 +50,7 @@ export default function Home() {
         plugins={[dayGridPlugin, interactionPlugin, timeGridPlugin]}
         initialView="timeGridWeek"
         eventDrop={(info) => {
-          const eventFiltered = events.filter(event => event.extendedProps.id !== info.event.extendedProps.id)
+          const eventFiltered = events.filter(event => event.extendedProps.id !== info.event.extendedProps.id) as any
           setEvents([
             ...eventFiltered,
             { title: info.event.title, start: info.event.startStr, end: info.event.endStr, backgroundColor: info.event.backgroundColor, extendedProps: { id: info.event.extendedProps.id } }
@@ -59,7 +59,7 @@ export default function Home() {
           alert('Dropped ' + info.event.title)
         }}
         eventResize={(info) => {
-          const eventFiltered = events.filter(event => event.extendedProps.id !== info.event.extendedProps.id)
+          const eventFiltered = events.filter(event => event.extendedProps.id !== info.event.extendedProps.id) as any
           setEvents([
             ...eventFiltered,
             { title: info.event.title, start: info.event.startStr, end: info.event.endStr, backgroundColor: info.event.backgroundColor, extendedProps: { id: info.event.extendedProps.id } }
@@ -68,6 +68,7 @@ export default function Home() {
         }}
 
         select={(info) => {
+          // @ts-ignore
           setEvents(event => {
             const newId = events[events.length - 1].extendedProps.id + 1
             return [
