@@ -32,7 +32,7 @@ export default function Home() {
     <div style={{ padding: 20 }}>
       <FullCalendar
         nowIndicator={true}
-        eventClick={(info) => console.log(info.event.extendedProps, info.event.title)}
+        eventClick={(info: any) => console.log(info.event.extendedProps, info.event.title)}
         editable={true}
         views={{
           dayGrid: {
@@ -49,7 +49,7 @@ export default function Home() {
         ref={calendarRef}
         plugins={[dayGridPlugin, interactionPlugin, timeGridPlugin]}
         initialView="timeGridWeek"
-        eventDrop={(info) => {
+        eventDrop={(info: any) => {
           const eventFiltered = events.filter(event => event.extendedProps.id !== info.event.extendedProps.id) as any
           setEvents([
             ...eventFiltered,
@@ -58,7 +58,7 @@ export default function Home() {
           )
           alert('Dropped ' + info.event.title)
         }}
-        eventResize={(info) => {
+        eventResize={(info: any) => {
           const eventFiltered = events.filter(event => event.extendedProps.id !== info.event.extendedProps.id) as any
           setEvents([
             ...eventFiltered,
@@ -67,7 +67,7 @@ export default function Home() {
           alert('Resized ' + info.event.title)
         }}
 
-        select={(info) => {
+        select={(info: any) => {
           // @ts-ignore
           setEvents(event => {
             const newId = events[events.length - 1].extendedProps.id + 1
