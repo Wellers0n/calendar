@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 
 const withTM = require("next-transpile-modules")([
-  // "@fullcalendar/core",
+  "@fullcalendar/core",
   "@babel/preset-react",
   "@fullcalendar/common",
   "@fullcalendar/daygrid",
